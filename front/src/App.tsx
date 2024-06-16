@@ -1,14 +1,20 @@
-import HomePage from "pages/HomePage";
 import PublicRoutes from "routes/PublicRoutes";
-import PrivateRoutes from "routes/PrivateRoutes";
 import { Suspense } from "react";
+import { AppStyles, Footer } from './App.styled';
+import Header from "features/Header";
 
 const App = () => {
     return (
-        <Suspense fallback={'Загрузка...'}>
-            <PublicRoutes />
-            <PrivateRoutes />
-        </Suspense>
+        <>
+            <AppStyles />
+            <Header />
+            <Suspense fallback={'Загрузка...'}>
+                <PublicRoutes />
+            </Suspense>
+            <Footer>
+                <div>Маркетплейс</div>
+            </Footer>
+        </>
     )
 }
 

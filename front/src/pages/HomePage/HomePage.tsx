@@ -1,5 +1,9 @@
+import { PageWrapper } from "App.styled";
 import { Helmet } from "react-helmet";
-import { TestDiv } from './styled';
+import { ProductGroup, ProductGroupContainer } from "./styled";
+import { dummyProducts } from "./dummyProducts";
+import ProductCard from "blocks/ProductCard";
+
 
 export default function HomePage() {
     return (
@@ -7,7 +11,18 @@ export default function HomePage() {
             <Helmet>
                 <title>Главная</title>
             </Helmet>
-            <TestDiv />
+            <PageWrapper>
+                <ProductGroup>
+                    <h2>Рекомендуемые товары</h2>
+                    <ProductGroupContainer>
+                        {dummyProducts.map((item, index) => (
+                            <ProductCard {...item} key={item.id} />
+                        ))}
+                    </ProductGroupContainer>
+                </ProductGroup>
+            </PageWrapper>
+
+
         </>
     )
 }
